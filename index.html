@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>What physicist do you think like?</title>
+<meta name="description" content="A fun test of judgment: which physicist do you think like?">
+<meta property="og:title" content="What physicist do you think like?">
+<meta property="og:description" content="25 statements, 38 physicists. A test of judgment, not your whole personality.">
+<link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@500;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{color-scheme:dark;--bg:#0a1020;--card:#111b2e;--cream:#f3e9d2;--sh:#1f3354;--blue:#7bb8f0;--green:#6fd08c;--mut:#9aa7bd;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*,*:before,*:after{box-sizing:inherit}
+html{background:var(--bg);scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--cream);font:16px/1.5 'JetBrains Mono',ui-monospace,Menlo,monospace}
+#app{max-width:520px;margin:0 auto;padding:22px 18px 56px}
+h1,h2,.px{font-family:'Pixelify Sans','Courier New',monospace;font-weight:700;margin:0;line-height:1.15}
+h1{font-size:clamp(30px,9vw,44px)}h2{font-size:clamp(24px,7vw,32px)}
+.top{font-family:'Pixelify Sans',monospace;font-weight:700;color:var(--blue);font-size:clamp(17px,5vw,22px);padding-bottom:12px;margin-bottom:22px;border-bottom:3px solid var(--sh)}
+.lab{font-family:'Pixelify Sans',monospace;color:var(--blue);letter-spacing:.06em;text-transform:uppercase;font-size:15px}
+.meta{color:var(--mut);margin:10px 0 0}
+.card{border:3px solid var(--cream);background:var(--card);box-shadow:7px 7px 0 var(--sh);padding:18px}
+.btn{font:inherit;font-size:15px;color:var(--cream);background:var(--card);border:3px solid var(--cream);box-shadow:5px 5px 0 var(--sh);padding:14px;cursor:pointer;text-align:left;width:100%}
+.btn:hover{background:#17253f}
+.btn:active{transform:translate(3px,3px);box-shadow:2px 2px 0 var(--sh)}
+.btn:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
+.blue{background:var(--blue);color:#0a1020;font-weight:700}.blue:hover{background:#97c8f5}
+.c{text-align:center}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:16px}
+.opts{display:grid;gap:16px;margin:22px 0}
+.prog{display:flex;gap:3px;margin:0 0 18px}
+.prog i{flex:1;height:9px;border:2px solid var(--sh)}
+.prog i.on{background:var(--blue);border-color:var(--blue)}.prog i.cur{border-color:var(--cream)}
+.hero{display:grid;grid-template-columns:1fr 1fr;gap:18px;align-items:center}
+canvas{width:100%;aspect-ratio:1;image-rendering:pixelated;border:3px solid var(--cream);display:block}
+.pct{font-family:'Pixelify Sans',monospace;font-weight:700;color:var(--blue);font-size:clamp(44px,15vw,76px);line-height:1}
+.chips{display:flex;flex-wrap:wrap;gap:12px;margin-top:12px}
+.chip{border:3px solid var(--cream);background:#16294a;padding:8px 12px;font-size:14px}
+.rk{display:grid;grid-template-columns:64px 1fr auto;gap:14px;align-items:center;margin-top:18px}
+.rk canvas{border-width:2px}
+.rk b{font-family:'Pixelify Sans',monospace;font-size:20px;color:var(--blue)}
+.bar{height:8px;border:2px solid var(--sh);margin-top:6px}.bar i{display:block;height:100%;background:var(--blue)}
+.small{width:auto;padding:8px 12px;font-size:13px;box-shadow:3px 3px 0 var(--sh)}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+.nav{display:flex;justify-content:space-between;align-items:center;margin:0 0 16px;font-family:'Pixelify Sans',monospace;font-size:17px}
+.lk{font:inherit;color:var(--cream);background:none;border:0;border-bottom:2px solid #4a78b0;padding:0 0 2px;cursor:pointer}
+.lk:focus-visible,.term:focus-visible,.und:focus-visible,.x:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
+.pbar{height:26px;border:3px solid #4a78b0;margin-bottom:22px;padding:2px}.pbar i{display:block;height:100%;background:var(--blue)}
+.card.q{border-color:#4a78b0}
+.qh{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:18px}
+.cat{display:inline-flex;align-items:center;gap:8px;border:2px solid var(--sh);background:#0c1424;padding:8px 10px;font-size:12px;letter-spacing:.06em;text-transform:uppercase}
+.cat s{width:14px;height:14px;display:block}
+.und{font:inherit;font-size:14px;color:var(--cream);background:#16294a;border:3px solid #4a78b0;box-shadow:4px 4px 0 var(--sh);padding:8px 12px;cursor:pointer}
+.und:active{transform:translate(2px,2px);box-shadow:2px 2px 0 var(--sh)}
+.qt{font-size:clamp(19px,5.4vw,24px);line-height:1.55;margin:0}
+.term{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer;border-bottom:2px dotted var(--cream)}
+.btn.ans{position:relative;display:flex;align-items:center;gap:16px;padding:16px 16px 24px;border-color:#4a78b0}
+.btn.ans:after{content:"";position:absolute;left:0;right:0;bottom:0;height:9px;background:var(--c)}
+.ans b{display:grid;place-items:center;width:34px;height:34px;border:2px solid #4a78b0;font-family:'Pixelify Sans',monospace}
+.alt{display:flex;justify-content:center;gap:22px;flex-wrap:wrap;margin-top:26px;font-size:14px}
+.ov{position:fixed;inset:0;background:rgba(5,8,16,.74);display:flex;align-items:flex-start;justify-content:center;padding:calc(env(safe-area-inset-top,0px) + 80px) 18px 24px;z-index:20;overflow:auto}
+.ov[hidden]{display:none}
+.pp{max-width:480px;width:100%;position:relative;border-color:#4a78b0}
+.pp p{margin:12px 0 0}.pp ul{margin:8px 0 0;padding-left:20px}.pp li{margin:8px 0}
+.x{position:absolute;top:8px;right:14px;font:inherit;font-size:30px;line-height:1;color:var(--cream);background:none;border:0;cursor:pointer}
+#app{padding:14px 18px 24px}
+.top{margin-bottom:12px;padding-bottom:8px}
+.prog{gap:3px;margin:0 0 12px}.prog i{height:9px}
+.qrow{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+.qrow .und{padding:7px 10px;font-size:13px}
+.qh2{font-family:'Pixelify Sans','Courier New',monospace;font-weight:700;margin:0 0 14px;line-height:1.25;font-size:clamp(19px,3.3vh,25px)}
+.qo{gap:10px;margin:0}
+.btn.ans{padding:9px 14px;gap:12px;border-color:var(--cream);border-left:3px solid var(--cream)}
+.btn.ans:after{display:none}
+.ans b{width:26px;height:26px;border-color:var(--cream);font-size:14px}
+.alt{margin-top:16px;justify-content:space-between;gap:10px;font-size:13px}
+.lk{border-bottom-color:var(--blue)}
+.irow{display:flex;justify-content:flex-end;margin-bottom:14px}
+.ibtn{font-family:'Pixelify Sans',monospace;font-weight:700;font-size:20px;width:38px;height:38px;color:var(--cream);background:var(--card);border:3px solid var(--cream);box-shadow:3px 3px 0 var(--sh);cursor:pointer}
+.ibtn:active{transform:translate(2px,2px);box-shadow:1px 1px 0 var(--sh)}
+.ibtn:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
+</style></head>
+<body><main id="app"></main>
+<script>
+// traits T I A S R E D U: theory, intuition, applied, solo, radical, elegance, objective reality, unification (negative = opposite pole)
+const K='TIASREDU',TR=[['Hands-on experiments','Theory first'],['Formalism first','Intuition first'],['Fundamental questions','Real-world impact'],['Collaboration','Working alone'],['Step by step','Breaking paradigms'],['Data over beauty','Elegance and symmetry'],['Predictions over pictures','Objective reality'],['Emergence','Grand unification']];
+const vec=s=>{const v=Array(8).fill(0);for(const[,k,n]of s.matchAll(/([TIASREDU])(-?\d)/g))v[K.indexOf(k)]=+n;return v};
+const P=[
+['Isaac Newton','1643–1727','Classical mechanics','Theoretical','T1I-1S2R2E2D2U2','Laws from first principles'],
+['Galileo Galilei','1564–1642','Mechanics and astronomy','Experimental','T-1I1S1R2D1U1','Experiment as argument'],
+['Albert Einstein','1879–1955','Relativity','Theoretical','T2I2A-2S1R2E2D2U2','Thought experiments'],
+['Marie Curie','1867–1934','Radioactivity','Experimental','T-2A1S-1R1E-1D1','Relentless measurement'],
+['Richard Feynman','1918–1988','Quantum electrodynamics','Theoretical','T1I2R1E1D-1U-1','Playful problem solving'],
+['Niels Bohr','1885–1962','Atomic structure','Theoretical','T1I2A-1S-2R1D-2U-1','Debate as discovery'],
+['Werner Heisenberg','1901–1976','Quantum mechanics','Theoretical','T2I-2A-2R2E1D-2U1','Pure formalism'],
+['Erwin Schrödinger','1887–1961','Wave mechanics','Theoretical','T2I1A-1S1R1E2D2U1','Waves everywhere'],
+['Paul Dirac','1902–1984','Relativistic quantum theory','Theoretical','T2I-2A-2S2R2E2D1U1','Beauty as a compass'],
+['Michael Faraday','1791–1867','Electromagnetism','Experimental','T-2I2A1S1R1D2U1','Seeing fields at the bench'],
+['James Clerk Maxwell','1831–1879','Electromagnetism','Theoretical','T2S1R1E2D1U2','Unifying through equations'],
+['Ernest Rutherford','1871–1937','Nuclear physics','Experimental','T-2I1S-1R1E-1D1U1','Scatter it and see'],
+['Enrico Fermi','1901–1954','Nuclear physics','Theory and experiment','I2A1S-1D-1U-1','Back-of-envelope mastery'],
+['Nikola Tesla','1856–1943','Electrical engineering','Applied','T1I1A2S2R2D1','Invent it in your head'],
+['Chien-Shiung Wu','1912–1997','Nuclear and particle physics','Experimental','T-2A1S-1E-2D1U-1','Precision that settles debates'],
+['Emmy Noether','1882–1935','Symmetry and conservation laws','Theoretical','T2I-2A-2R2E2U2','Symmetry explains everything'],
+['Stephen Hawking','1942–2018','Black holes and cosmology','Theoretical','T2I1A-2S-1R2E1D1U2','Big questions, bold claims'],
+['Lev Landau','1908–1968','Condensed matter','Theoretical','T2I-1A-1S-2R1E1D-1U-2','Rigor and a school of thought'],
+['C. V. Raman','1888–1970','Light scattering','Experimental','T-2I2A1S1R1D1U-1','Curiosity at the bench'],
+['S. Chandrasekhar','1910–1995','Astrophysics','Theoretical','T2I-1A-2S2R1E2D1U1','Patient mathematical depth'],
+['Satyendra Nath Bose','1894–1974','Quantum statistics','Theoretical','T2I1A-2S1R2E1D-1','Counting in a new way'],
+['Max Planck','1858–1947','Quantum theory','Theoretical','T2I-2A-1S1E1D1U1','The reluctant revolutionary'],
+['John Bardeen','1908–1991','Solid state physics','Applied','T1A2S-1E-1D-1U-1','Understand it, then build it'],
+['Vera Rubin','1928–2016','Galaxy rotation','Observational','T-2I1A-2E-2D1U-1','Let the data speak'],
+['Ludwig Boltzmann','1844–1906','Statistical mechanics','Theoretical','T2I-1A-1S1R2E1D2U1','Atoms, statistically'],
+['Ernst Mach','1838–1916','Mechanics and philosophy of science','Theoretical','T-1R1D-2U-1','Only what can be observed'],
+['Max Born','1882–1970','Quantum mechanics','Theoretical','T2I-1A-1S-1R1D-2','Probability is real'],
+['Wolfgang Pauli','1900–1958','Quantum theory','Theoretical','T2I-2A-2S1R1E2D-1U1','Sharp mind, sharper tongue'],
+['Lise Meitner','1878–1968','Nuclear fission','Theory and experiment','I1S-1R1E-1D1','Explaining the surprise'],
+['J. Robert Oppenheimer','1904–1967','Theoretical and nuclear physics','Theoretical','T1A1S-1D-1','Physics under pressure'],
+['Hans Bethe','1906–2005','Nuclear astrophysics','Theoretical','T1I1A1S-1R-1E-1D1U-1','Calculating the Sun'],
+['Murray Gell-Mann','1929–2019','Particle physics','Theoretical','T2I-1A-2R1E2D1U2','Order in the particle zoo'],
+['John Bell','1928–1990','Quantum foundations','Theoretical','T1I1A-2R1E1D2','Making philosophy testable'],
+['Roger Penrose','1931–','Relativity and cosmology','Theoretical','T2I2A-2S2R2E2D2U2','Geometry and big questions'],
+['Philip Anderson','1923–2020','Condensed matter','Theoretical','T1I1R1E-1D-1U-2','More is different'],
+['Hendrik Lorentz','1853–1928','Electron theory','Theoretical','T2I-1R-2E1D2U1','Careful classical craft'],
+['Edwin Hubble','1889–1953','Observational cosmology','Observational','T-2A-2S1R1E-2D1U-1','Expanding the map'],
+['Ernest Lawrence','1901–1958','Particle accelerators','Applied','T-1A2S-2R1E-1D1U-1','Big machines, big science']];
+P.forEach(p=>p[4]=vec(p[4]));
+const CAT={Reality:'#b28cf0',Method:'#6fd08c',Theory:'#7bb8f0',Society:'#f0b86f',Discovery:'#f08fa0'};
+const G={
+'deterministic':['Deterministic','A law is deterministic if the present state fixes the future exactly. A probabilistic law only fixes the chances of different outcomes.'],
+'absolute space':['Absolute space','The idea that space exists on its own, like an empty stage. The alternative says space is only the set of relations between objects.'],
+'observables':['Observables','Quantities you can in principle measure directly, such as position, energy or the colour of light.'],
+'theory of everything':['Theory of everything','A hypothetical single framework describing all forces and all matter. None is confirmed, and some candidates are very hard to test.'],
+'thought experiment':['Thought experiment','An imagined scenario worked through with logic to test whether an idea is consistent. No laboratory is needed.'],
+'symmetry':['Symmetry','A change that leaves something looking or behaving the same, like rotating a circle. In physics, symmetries are linked to conserved quantities such as energy and momentum.'],
+'order of magnitude':['Order of magnitude','The rough size of a number, to the nearest power of ten. A quick estimate shows whether a result is plausible.'],
+'reductionism':['Reductionism','The view that a complex system is fully explained by its simplest parts and the laws that govern them.'],
+'emergence':['Emergence','When a large system shows behaviour that is hard to see in, or describe with, the rules of its parts, such as temperature or life.']};
+// [category, statement, trait effect of agreeing, context|view|view|view]
+const Q=[
+['Reality','The Moon exists even when nobody is looking at it.','D2','Does a thing have definite properties when nobody measures it?|Some say yes: the world is there whether or not we look.|Others say only measurement results carry meaning.|Others say we must first define what “exists” means.'],
+['Reality','At the deepest level, nature follows [[deterministic]] laws; probability only reflects what we do not know.','D1U1','Are the laws of nature exact, or only probabilities at the core?|One view: probability reflects hidden detail we cannot see.|Another: chance is built into nature itself.|A third: the predictions matter more than the picture.'],
+['Reality','[[Space|absolute space]] would exist even if the universe were empty.','D1E-1R-1','Is space a thing in its own right, or only the relations between things?|Stage view: space is a container that is there regardless.|Relational view: no objects, no space.|Modern view: space can bend and change, so it acts like a physical field.'],
+['Reality','Science may talk about things we cannot [[observe|observables]] directly, if they explain enough.','D2T1','Should physics only speak about what can be directly seen?|Some say unseen entities are fine if they explain a lot.|Others say stick to [[observables]].|Others say build an experiment that makes them visible.'],
+['Theory','Quantum theory is a rulebook for predicting [[observables]], not a picture of what is really happening.','I-2D-1','Is quantum theory a picture of reality or a rulebook for results?|Rulebook view: the maths predicts measurements, nothing more.|Picture view: waves or particles really are doing something.|Practical view: use whichever formulation is faster.'],
+['Theory','When a beautiful equation disagrees slightly with the data, the data are more likely wrong.','E2T1','What should win when elegance and data disagree?|Beauty first: elegant ideas often turn out right.|Data first: nature owes us no elegance.|Middle path: look for a missing effect, or wait for better data.'],
+['Method','Understanding a phenomenon starts with a mental picture, not with equations.','I2T-1','Do you think in pictures or in symbols?|Visual thinkers sketch fields, flows and shapes first.|Symbolic thinkers set up equations and trust them.|Many switch between both depending on the problem.'],
+['Theory','Pursuing a [[theory of everything]] is worthwhile even if it cannot yet be tested.','U2T1E1','Is it worth pursuing ideas that cannot yet be tested?|For: unification has paid off before, and tests may come later.|Against: without predictions it is mathematics, not physics.|Middle: pursue it, but keep demanding predictions.'],
+['Reality','Everything, including life and mind, follows in principle from a few fundamental laws.','U2','Does everything follow from the smallest parts?|[[reductionism]] says yes, in principle.|[[emergence]] says new rules appear at each level.|Pragmatists pick whichever level is useful for the question.'],
+['Society','Scientists should challenge established authorities, even when they stand alone.','R2S1','How should a new idea face established views?|Confrontation: challenge them openly.|Persuasion: pile up evidence until it is hard to ignore.|Patience: improve the existing picture step by step.'],
+['Method','A design should be worked out fully on paper before anything is built.','T2A-1','Is it better to think first or to try things?|Think first: work the design out on paper or in your head.|Try first: build many versions and let reality choose.|Mixed: calculate roughly, then test.'],
+['Society','If a problem is technically beautiful, it should be solved first and its consequences argued about later.','A-1R1','Should a hard, exciting problem be solved regardless of what it leads to?|Yes: knowledge itself is neutral.|No: scientists share responsibility for outcomes.|In between: solve it, but argue publicly about limits.'],
+['Society','When evidence contradicts official doctrine, it should be published and defended openly.','R2S1T-1','What should you do when evidence conflicts with an official position?|Publish and defend it openly.|Stay quiet and keep working.|Frame it carefully, as a model rather than a claim about truth.'],
+['Society','Discoveries with commercial potential should be shared openly rather than patented.','A-1S-1','Should discoveries be shared freely or protected?|Open: knowledge belongs to everyone.|Protected: patents can fund further development.|Shared with a few trusted collaborators first.'],
+['Method','The best way to test a deep idea is a clever [[thought experiment]].','I2R1','How do you test an idea when no laboratory is available?|A [[thought experiment]] pushes an idea to its limits by logic.|Others prefer to define their terms more carefully first.|Others ask what could actually be measured.'],
+['Method','It is better to make bold claims and admit when you are wrong than to stay cautious.','R2S1','Is boldness a virtue in science?|Bold claims can be quickly proven wrong, which is progress.|Caution avoids embarrassment but may move slowly.|Either way, admitting error matters.'],
+['Discovery','When an experiment breaks a cherished [[symmetry]], the experiment decides.','T-2E-2','What if an experiment breaks a [[symmetry]] everyone loved?|Accept it: the experiment decides.|Doubt it until it is replicated.|Rebuild the theory, or see broken symmetry as where structure comes from.'],
+['Discovery','If a long-held entity is never detected, physics should be rebuilt without it rather than patched.','R2E1','What if something long assumed never shows up in any measurement?|Save it with extra assumptions.|Drop it and rebuild the framework.|Build a more precise test first.'],
+['Method','A rough [[order of magnitude]] estimate from intuition is often worth more than an exact calculation.','I2A1','Is a quick [[order of magnitude]] estimate valuable?|Fans say it shows what matters before any detail.|Critics say precision is the point of physics.|Others check units and limits first.'],
+['Theory','The deepest laws of nature are expressions of [[symmetry]].','E2U1T1','Do laws come from deeper principles?|Some think [[symmetry]] explains the laws.|Some prefer minimum-effort principles.|Others prefer statistics and entropy.'],
+['Reality','Consciousness will eventually be explained by known physical laws.','U1D1','Can the mind be explained by physics?|Yes, from known laws, eventually.|Maybe, but new physics is needed.|It is a different level, or not a physics question at all.'],
+['Discovery','A clever theorem is worth less than the experiment that actually settles the question.','T-2E-1','What matters more: a clean argument or an actual experiment?|Theory can make a question testable.|Experiment can settle it.|Technology built from the answer may matter most.'],
+['Theory','A theory’s main value is the new technology it makes possible.','A2','What is a theory for?|Understanding and beauty.|Precise numbers.|Making new technology.'],
+['Discovery','Large collaborative surveys will discover more than lone thinkers.','S-2T-1','Who finds more: large teams or lone thinkers?|Big surveys can expose surprises nobody expected.|Single minds can reinterpret old data.|Better instruments change what can be seen.'],
+['Society','Harsh but honest criticism is the best service you can do a colleague’s idea.','S1','How should a colleague’s idea be judged?|Bluntly and honestly.|Constructively and together.|With experiments in mind.']];
+const LK=[['Strongly disagree','#a8574d'],['Disagree','#5e3c4a'],['Somewhere in between','#4a5a78'],['Agree','#3f5f8c'],['Strongly agree','#6a9bd4']];
+const app=document.getElementById('app');let i=0,A=[],last=null;
+const TOP='<div class="top">What physicist do you think like?</div>',show=(h,t)=>{app.innerHTML=(t?TOP:'')+h;window.scrollTo(0,0)};
+const nrm=v=>{const m=Math.hypot(...v)||1;return v.map(x=>x/m)};
+const use=async n=>{try{return window.claude?await window.claude.use(n):null}catch(e){return null}};
+const fmt=s=>s.replace(/\[\[([^\]|]+)(?:\|([^\]]+))?\]\]/g,(m,a,b)=>`<button class="term" data-k="${b||a}">${a}</button>`);
+function raw(){const r=Array(8).fill(0);A.forEach((a,n)=>vec(Q[n][2]).forEach((x,j)=>r[j]+=a*x));return r}
+function match(){const r=raw(),u=nrm(r);return P.map(p=>{const q=nrm(p[4]),c=u.reduce((s,x,j)=>s+x*q[j],0);return{p,r,c,pct:Math.round(100*(1-Math.sqrt(Math.max(0,2-2*c))/2))}}).sort((a,b)=>b.c-a.c)}
+const pp=document.createElement('div');pp.className='ov';pp.hidden=true;document.body.appendChild(pp);
+function openP(t,h){pp.innerHTML=`<div class="card pp" role="dialog" aria-modal="true"><button class="x" onclick="closeP()" aria-label="Close">×</button><h2 style="font-size:24px;padding-right:36px">${t}</h2>${h}</div>`;pp.hidden=false}
+function closeP(){pp.hidden=true}
+pp.addEventListener('click',e=>{if(e.target===pp)closeP()});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeP()});
+document.addEventListener('click',e=>{const b=e.target.closest('.term');if(b&&G[b.dataset.k])openP(G[b.dataset.k][0],`<p>${G[b.dataset.k][1]}</p>`)});
+function und(){const p=Q[i][3].split('|');openP('Understand',`<p>${fmt(p[0])}</p><p class="lab" style="margin-top:18px">Some ways to see it</p><ul>${p.slice(1).map(x=>`<li>${fmt(x)}</li>`).join('')}</ul>`)}
+function info(){openP('About','<p>Hey everyone, this is the fun app I made through Claude, inspired by KnowSoda, on which physicist do you think like. It’s a test of judgment rather than your whole personality, so just enjoy it.</p>')}
+function intro(){show(`<div class="irow"><button class="ibtn" onclick="info()" aria-label="About this app">i</button></div><div class="card"><h1>Find the physicist whose mind matches yours.</h1><p class="meta">${Q.length} statements about physics and how it is done. Say how far you agree with each. Tap Understand for context, and underlined words for definitions.</p></div><div style="margin-top:28px"><button class="btn blue c" onclick="start()">Start the test</button></div>`)}
+function start(){i=0;A=[];q()}
+function q(){if(i>=Q.length)return result();const t=Q[i][1];
+show(`<div class="prog">${Q.map((_,k)=>`<i class="${k<i?'on':k==i?'cur':''}"></i>`).join('')}</div>
+<div class="qrow"><span class="lab">Question ${i+1} of ${Q.length}</span><button class="und" onclick="und()">? Understand</button></div>
+<h2 class="qh2">${fmt(t)}</h2>
+<div class="opts qo">${LK.map((l,k)=>`<button class="btn ans" style="--c:${l[1]}" onclick="ans(${k-2})"><b>${k+1}</b>${l[0]}</button>`).join('')}</div>
+<div class="alt"><button class="lk" onclick="back()">← Back</button><button class="lk" onclick="ans(0)">I don’t know</button><button class="lk" onclick="ans(0)">Badly posed</button><button class="lk" onclick="intro()">Leave</button></div>`)}
+function ans(v){A[i]=v;i++;q()}
+function back(){if(!i)return intro();i--;A.length=i;q()}
+function avatar(c,name){const N=20,g=c.getContext('2d');c.width=c.height=N;let h=2166136261;for(const ch of name)h=Math.imul(h^ch.charCodeAt(0),16777619)>>>0;
+const r=()=>{h^=h<<13;h>>>=0;h^=h>>>17;h^=h<<5;h>>>=0;return h/4294967296},pk=a=>a[Math.floor(r()*a.length)];
+const px=(x,y,col)=>{g.fillStyle=col;g.fillRect(x,y,1,1);g.fillRect(N-1-x,y,1,1)};
+const skin=pk(['#fdf3e1','#f3d2ae','#d9a577','#a9744f']),hair=pk(['#2b2233','#6b5a78','#c9c3d6','#5a3a2a','#e8e2f0']),cl=pk(['#7a86b8','#8c2f3a','#3d5a80','#6b705c','#5b4b8a']),long=r()>.5,beard=r()>.65,fringe=r()>.4;
+for(let y=0;y<N;y++)for(let x=0;x<N/2;x++)px(x,y,r()<.25?'#13203a':'#0c1424');
+for(let y=15;y<N;y++)for(let x=3;x<10;x++)px(x,y,cl);
+for(let y=4;y<15;y++){const w=y<5?4:y<13?5:4;for(let x=10-w;x<10;x++)px(x,y,skin);if(long&&y>=5)px(10-w-1,y,hair),px(10-w-2,y,hair)}
+for(let y=3;y<6;y++)for(let x=4;x<10;x++)if(y<5||fringe||x<6)px(x,y,hair);
+if(beard)for(let y=12;y<15;y++)for(let x=6;x<10;x++)px(x,y,hair);
+px(7,8,'#1a1424');px(6,7,hair);px(7,7,hair);px(9,10,'#00000030');px(8,12,'#a45a4a');px(9,12,'#a45a4a');
+g.fillStyle='rgba(0,0,0,.2)';for(let y=5;y<15;y++)for(let x=11;x<15;x++)if(r()<.3)g.fillRect(x,y,1,1)}
+function tagsOf(b){return b.r.map((v,j)=>({s:v*b.p[4][j]>0?Math.abs(v*b.p[4][j]):0,l:TR[j][v>0?1:0]})).filter(t=>t.s).sort((a,b)=>b.s-a.s).slice(0,3).map(t=>t.l)}
+function result(){const m=match();last=m;const b=m[0],p=b.p,tg=tagsOf(b);
+show(`<div class="card"><div class="hero"><canvas id="av" role="img" aria-label="Pixel portrait of ${p[0]}"></canvas><div><div class="pct">${b.pct}%</div><div class="lab" style="margin-top:12px">Most compatible</div></div></div>
+<h2 style="margin-top:20px">${p[0]}</h2><p class="meta">${p[1]} · ${p[2]}</p><p class="meta" style="margin-top:20px">You agree on</p><div class="chips">${tg.map(t=>`<span class="chip">${t}</span>`).join('')||'<span class="chip">Curiosity</span>'}</div></div>
+<div class="lab" style="margin:30px 0 8px">My result · ${p[3]}</div><h1>${p[5]}</h1>
+<div class="card" style="margin-top:28px"><div class="lab">Also close to you</div>${m.slice(1,4).map((x,k)=>`<div class="rk"><canvas class="av2"></canvas><div><div>${x.p[0]}</div><div class="meta" style="margin:0;font-size:13px">${x.p[2]}</div><div class="bar"><i style="width:${x.pct}%"></i></div></div><b>#${k+2} · ${x.pct}%</b></div>`).join('')}</div>
+<div class="grid" style="grid-template-columns:1fr"><button class="btn blue c" id="dl" onclick="dlc()">Download image</button></div>
+<div class="grid"><button class="btn c" id="cp" onclick="share()">Share result</button><button class="btn c" onclick="start()">Retake</button></div><div id="pv"></div>`,1);
+avatar(document.getElementById('av'),p[0]);document.querySelectorAll('.av2').forEach((c,k)=>avatar(c,m[k+1].p[0]))}
+function cardBlob(){return(async()=>{await Promise.all([document.fonts.load("700 40px 'Pixelify Sans'"),document.fonts.load("400 16px 'JetBrains Mono'")]).catch(()=>0);
+const W=1080,H=1920,c=document.createElement('canvas');c.width=W;c.height=H;const g=c.getContext('2d'),b=last[0],p=b.p,PX="'Pixelify Sans','Courier New',monospace",MO="'JetBrains Mono',monospace",CR='#f3e9d2',BL='#7bb8f0',MU='#9aa7bd';
+const txt=(t,x,y,sz,col,fam,w=700,mx=0)=>{g.fillStyle=col;g.font=`${w} ${sz}px ${fam}`;while(mx&&g.measureText(t).width>mx&&sz>16){sz-=2;g.font=`${w} ${sz}px ${fam}`}g.fillText(t,x,y)};
+const pic=(name,x,y,s,bw)=>{const a=document.createElement('canvas');avatar(a,name);g.imageSmoothingEnabled=false;g.drawImage(a,x,y,s,s);g.strokeStyle=CR;g.lineWidth=bw;g.strokeRect(x,y,s,s)};
+g.fillStyle='#0a1020';g.fillRect(0,0,W,H);
+txt('What physicist do you think like?',60,100,44,BL,PX,700,960);
+g.fillStyle='#1f3354';g.fillRect(74,164,960,940);g.fillStyle='#111b2e';g.fillRect(60,150,960,940);g.strokeStyle=CR;g.lineWidth=6;g.strokeRect(63,153,954,934);
+pic(p[0],100,190,420,6);
+txt(b.pct+'%',560,370,170,BL,PX);txt('MOST COMPATIBLE',560,440,36,BL,PX);
+txt(p[0],100,760,80,CR,PX,700,880);txt(p[1]+' · '+p[2],100,825,30,MU,MO,400,880);txt('You agree on',100,895,28,MU,MO,400);
+let x=100,y=925;g.lineWidth=5;for(const t of tagsOf(b)){g.font=`400 26px ${MO}`;const w=g.measureText(t).width+40;if(x+w>980){x=100;y+=76}g.fillStyle='#16294a';g.fillRect(x,y,w,58);g.strokeStyle=CR;g.strokeRect(x,y,w,58);txt(t,x+20,y+39,26,CR,MO,400);x+=w+16}
+txt('MY RESULT · '+p[3].toUpperCase(),60,1175,30,BL,PX);txt(p[5],60,1250,70,CR,PX,700,960);txt('Also close to you',60,1335,28,MU,MO,400);
+last.slice(1,4).forEach((m,k)=>{const ry=1365+k*170;pic(m.p[0],60,ry,120,4);
+txt(`#${k+2}  ${m.p[0]}`,210,ry+46,36,CR,MO,400,620);txt(m.p[2],210,ry+86,24,MU,MO,400,620);
+g.strokeStyle='#1f3354';g.lineWidth=4;g.strokeRect(212,ry+102,650,16);g.fillStyle=BL;g.fillRect(214,ry+104,646*m.pct/100,12);
+g.textAlign='right';txt(m.pct+'%',1020,ry+62,52,BL,PX);g.textAlign='left'});
+return await new Promise(r=>c.toBlob(r,'image/png'))})()}
+async function dlc(){const btn=document.getElementById('dl');btn.textContent='Making image…';
+try{const blob=await cardBlob(),d=await use('downloads');
+if(d){try{await d.save({filename:'my-physicist-'+last[0].p[0].toLowerCase().replace(/[^a-z]+/g,'-')+'.png',data:blob});btn.textContent='Download image';return}catch(e){if(e&&e.code==='declined'){btn.textContent='Download image';return}}}
+const u=URL.createObjectURL(blob);try{const a=document.createElement('a');a.href=u;a.download='my-physicist-result.png';document.body.appendChild(a);a.click();a.remove()}catch(e){}document.getElementById('pv').innerHTML=`<p class="meta">If the download did not start, press and hold the image to save it.</p><img alt="Your result card" src="${u}" style="width:100%;border:3px solid var(--cream);margin-top:10px">`;btn.textContent='Download image'}
+catch(e){btn.textContent='Could not make the image'}}
+async function share(){const b=last[0],t=`I think like ${b.p[0]} (${b.pct}% match). What physicist do you think like?`;
+try{if(navigator.share){await navigator.share({text:t,url:location.href});return}await navigator.clipboard.writeText(t+' '+location.href);const c=document.getElementById('cp');c.textContent='Copied';setTimeout(()=>c.textContent='Share result',1500)}catch(e){}}
+intro();
+</script></body></html>
